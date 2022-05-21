@@ -1,0 +1,12 @@
+root = true
+# somente arquivo java
+[*.java]
+# identar com spaço
+indent_style = space
+# 4 espaço a cada identação
+indent_size = 4
+charset = utf-8
+# remover linha vazia no final do arquivo
+insert_final_newline = false
+# remover espaço no final da linha
+trim_trailing_whitespace = true
