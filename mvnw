@@ -8,7 +8,7 @@
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 #
-#    https://www.apache.org/licenses/LICENSE-2.0
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
 #
 # Required ENV vars:
 # ------------------
-#   JAVA_HOME11 - location of a JDK home dir
+#   JAVA_HOME - location of a JDK home dir
 #
 # Optional ENV vars
 # -----------------
@@ -54,21 +54,21 @@ case "`uname`" in
   CYGWIN*) cygwin=true ;;
   MINGW*) mingw=true;;
   Darwin*) darwin=true
-    # Use /usr/libexec/JAVA_HOME11 if available, otherwise fall back to /Library/Java/Home
+    # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
     # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
-    if [ -z "$JAVA_HOME11" ]; then
-      if [ -x "/usr/libexec/JAVA_HOME11" ]; then
-        export JAVA_HOME11="`/usr/libexec/JAVA_HOME11`"
+    if [ -z "$JAVA_HOME" ]; then
+      if [ -x "/usr/libexec/java_home" ]; then
+        export JAVA_HOME="`/usr/libexec/java_home`"
       else
-        export JAVA_HOME11="/Library/Java/Home"
+        export JAVA_HOME="/Library/Java/Home"
       fi
     fi
     ;;
 esac
 
-if [ -z "$JAVA_HOME11" ] ; then
+if [ -z "$JAVA_HOME" ] ; then
   if [ -r /etc/gentoo-release ] ; then
-    JAVA_HOME11=`java-config --jre-home`
+    JAVA_HOME=`java-config --jre-home`
   fi
 fi
 
@@ -102,8 +102,8 @@ fi
 if $cygwin ; then
   [ -n "$M2_HOME" ] &&
     M2_HOME=`cygpath --unix "$M2_HOME"`
-  [ -n "$JAVA_HOME11" ] &&
-    JAVA_HOME11=`cygpath --unix "$JAVA_HOME11"`
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
   [ -n "$CLASSPATH" ] &&
     CLASSPATH=`cygpath --path --unix "$CLASSPATH"`
 fi
@@ -112,11 +112,11 @@ fi
 if $mingw ; then
   [ -n "$M2_HOME" ] &&
     M2_HOME="`(cd "$M2_HOME"; pwd)`"
-  [ -n "$JAVA_HOME11" ] &&
-    JAVA_HOME11="`(cd "$JAVA_HOME11"; pwd)`"
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME="`(cd "$JAVA_HOME"; pwd)`"
 fi
 
-if [ -z "$JAVA_HOME11" ]; then
+if [ -z "$JAVA_HOME" ]; then
   javaExecutable="`which javac`"
   if [ -n "$javaExecutable" ] && ! [ "`expr \"$javaExecutable\" : '\([^ ]*\)'`" = "no" ]; then
     # readlink(1) is not available as standard on Solaris 10.
@@ -130,19 +130,19 @@ if [ -z "$JAVA_HOME11" ]; then
       fi
       javaHome="`dirname \"$javaExecutable\"`"
       javaHome=`expr "$javaHome" : '\(.*\)/bin'`
-      JAVA_HOME11="$javaHome"
-      export JAVA_HOME11
+      JAVA_HOME="$javaHome"
+      export JAVA_HOME
     fi
   fi
 fi
 
 if [ -z "$JAVACMD" ] ; then
-  if [ -n "$JAVA_HOME11"  ] ; then
-    if [ -x "$JAVA_HOME11/jre/sh/java" ] ; then
+  if [ -n "$JAVA_HOME"  ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
       # IBM's JDK on AIX uses strange locations for the executables
-      JAVACMD="$JAVA_HOME11/jre/sh/java"
+      JAVACMD="$JAVA_HOME/jre/sh/java"
     else
-      JAVACMD="$JAVA_HOME11/bin/java"
+      JAVACMD="$JAVA_HOME/bin/java"
     fi
   else
     JAVACMD="`which java`"
@@ -150,13 +150,13 @@ if [ -z "$JAVACMD" ] ; then
 fi
 
 if [ ! -x "$JAVACMD" ] ; then
-  echo "Error: JAVA_HOME11 is not defined correctly." >&2
+  echo "Error: JAVA_HOME is not defined correctly." >&2
   echo "  We cannot execute $JAVACMD" >&2
   exit 1
 fi
 
-if [ -z "$JAVA_HOME11" ] ; then
-  echo "Warning: JAVA_HOME11 environment variable is not set."
+if [ -z "$JAVA_HOME" ] ; then
+  echo "Warning: JAVA_HOME environment variable is not set."
 fi
 
 CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
@@ -262,14 +262,14 @@ else
                   echo " - Compiling MavenWrapperDownloader.java ..."
                 fi
                 # Compiling the Java class
-                ("$JAVA_HOME11/bin/javac" "$javaClass")
+                ("$JAVA_HOME/bin/javac" "$javaClass")
             fi
             if [ -e "$BASE_DIR/.mvn/wrapper/MavenWrapperDownloader.class" ]; then
                 # Running the downloader
                 if [ "$MVNW_VERBOSE" = true ]; then
                   echo " - Running MavenWrapperDownloader.java ..."
                 fi
-                ("$JAVA_HOME11/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$MAVEN_PROJECTBASEDIR")
+                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$MAVEN_PROJECTBASEDIR")
             fi
         fi
     fi
@@ -288,8 +288,8 @@ MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
 if $cygwin; then
   [ -n "$M2_HOME" ] &&
     M2_HOME=`cygpath --path --windows "$M2_HOME"`
-  [ -n "$JAVA_HOME11" ] &&
-    JAVA_HOME11=`cygpath --path --windows "$JAVA_HOME11"`
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
   [ -n "$CLASSPATH" ] &&
     CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
   [ -n "$MAVEN_PROJECTBASEDIR" ] &&
