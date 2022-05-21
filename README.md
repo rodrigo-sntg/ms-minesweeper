@@ -6,9 +6,10 @@ A API já está hospedada no docker no repositório: `rodrigosntg/minesweeper`
 
 basta rodar o docker compose
 `docker-compose up --build`
+  
 
 
-code time appointments:
+code time appointments:  
     Criação da estrutura e principais entidades
     19/05 - start time  21:05
     19/05 - end time    22:00
