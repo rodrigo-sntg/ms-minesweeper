@@ -54,7 +54,7 @@ public class BoardUtils {
     {
 		for (int i = 0; i < matrix.length; i++) {
 	         for (int j = 0; j < matrix[i].length; j++) {
-        		 System.out.print(matrix[i][j].getSurfaceValue() + " ");
+        		 System.out.print(matrix[i][j].getSurfaceValue(false) + " ");
 
 	         }
 	         System.out.println();

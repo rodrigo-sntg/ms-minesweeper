@@ -22,7 +22,9 @@ public class Game {
 	public static final int DIFFICULTY_EASY = 1;
 	public static final int DIFFICULTY_MEDIUM = 2;
 	public static final int DIFFICULTY_HARD = 3;
-	public static final int DIFFICULTY_CUSTOM = 4;
+	public static final int DIFFICULTY_CHUCH_NORRIS = 4;
+
+    public static final int DIFFICULTY_CUSTOM = 5;
 
     @Id
     @SequenceGenerator(name = "gameseq", sequenceName = "game_id_seq", allocationSize = 1, initialValue = 1)

@@ -20,7 +20,8 @@ public class GameUtils {
 					return  (int) (size * 0.2);
 				case Game.DIFFICULTY_HARD:
 					return  (int) (size * 0.3);
-
+                case Game.DIFFICULTY_CHUCH_NORRIS:
+                    return  (int) (size * 0.5);
 				case Game.DIFFICULTY_CUSTOM:
 					return numberOfBombs;
 

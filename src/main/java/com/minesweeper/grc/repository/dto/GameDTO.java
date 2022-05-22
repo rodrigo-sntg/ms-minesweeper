@@ -20,7 +20,7 @@ public class GameDTO {
         this.setCode(game.getCode());
         this.setState(game.getState());
         this.setPlayer(game.getPlayer());
-        this.setBoard(new BoardDTO(game.getBoard()));
+        this.setBoard(new BoardDTO(game.getBoard(), game.getState() == State.LOST));
     }
 
 }

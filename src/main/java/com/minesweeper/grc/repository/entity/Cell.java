@@ -78,15 +78,22 @@ public class Cell {
     	return this.getBombsAround() == 0;
     }
 
-    public String getSurfaceValue() {
+    public String getSurfaceValue(Boolean isEndGame) {
     	String val = "";
-    	if(isOpened ) {
-    		if(!isBomb)
-    			return this.bombsAround + "";
-    		else return "*";
-    	}
-        if(isFlagged)
-            return "F";
+        if(isEndGame){
+            if(isBomb)
+                return "*";
+            else
+                return this.bombsAround + "";
+        }else{
+            if(isOpened ) {
+                if(!isBomb)
+                    return this.bombsAround + "";
+                else return "*";
+            }
+            if(isFlagged)
+                return "F";
+        }
     	return "?";
     }
 }

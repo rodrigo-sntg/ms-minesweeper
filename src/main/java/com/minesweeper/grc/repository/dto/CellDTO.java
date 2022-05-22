@@ -20,10 +20,12 @@ public class CellDTO {
         return "["+row +","+ col +"]";
     }
 
-    public CellDTO(Cell cell){
+    public CellDTO(Cell cell, boolean isEndGame){
         this.setId(cell.getId());
         this.setRow(cell.getRow());
         this.setCol(cell.getCol());
-        this.setSurfaceValue(cell.getSurfaceValue());
+
+
+        this.setSurfaceValue(cell.getSurfaceValue(isEndGame));
     }
 }
