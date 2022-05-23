@@ -11,15 +11,11 @@ basta rodar o docker compose
 
 code time appointments:  
 
+    Criação da estrutura e principais entidades - 55min
+    Criação da estrutura rest e banco de dados - 3h20min
+    Configurações do docker - 50min
+    criação frondend em react - 3h30min
+    criação do docker-compose - 50min
+    criação do github actions - 1h15min
 
-    Criação da estrutura e principais entidades
-    19/05 - start time  21:05
-    19/05 - end time    22:00
-    
-    Criação da estrutura rest e banco de dados
-    21/05 - start time  10:10
-    21/05 - end time    13:30
-
-    Configurações do docker
-    21/05 - start time  16:20
-    21/05 - end time    17:10
+Total time: 10h 40min
