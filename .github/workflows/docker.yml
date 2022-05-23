@@ -37,11 +37,9 @@ jobs:
       
       - 
         name: Set docker image name env
-        run: echo ::set-env name=DOCKER_IMAGE_NAME::rodrigosntg/minesweeper
-      
-      - 
-        name: Set docker image tag env
-        run: echo ::set-env name=DOCKER_TAG_VERSION::$(echo $GITHUB_RUN_NUMBER)
+        run: |
+          echo "DOCKER_IMAGE_NAME=rodrigosntg/minesweeper" >> $GITHUB_ENV
+          echo "DOCKER_TAG_VERSION=$(echo $GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
 
       -
         name: Set up QEMU
