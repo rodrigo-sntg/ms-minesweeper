@@ -158,9 +158,10 @@ public class BoardService {
     			int col = localCell.getCol() + position[1];
     			if(board.isValid(row,col)) {
 
-    				Cell c = board.getCellList().stream().filter(item -> item.equals(new Cell(row,col,(row*board.getNumColumns()) + col))).findFirst().orElse(null);
+    				Cell c = board.getCellList().stream().filter(item ->
+                                    item.equals(new Cell(row,col,(row*board.getNumColumns()) + col))).findFirst().orElse(null);
     				if(c != null && c.isBlank() && checkCell(c, board) ){
-                        dq.add(c);
+                        dq.offer(c);
 
                     }
     			}
