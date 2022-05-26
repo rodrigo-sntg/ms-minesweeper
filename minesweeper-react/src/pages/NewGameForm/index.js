@@ -1,4 +1,4 @@
-import React, { PureComponent, useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 
 
 import './styles.css';
@@ -10,7 +10,6 @@ import './styles.css';
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';
 
-import TextArea from '../../components/TextArea';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 import { useNavigate } from "react-router-dom";
@@ -26,9 +25,9 @@ function NewGameForm() {
     const isCustom = difficulty === "5" ? true : false;
 
     const isFormValid = () => {
-        console.log(player != "" && (difficulty != "" && difficulty > 0) && rows > 0 && columns > 0);
+        console.log(player !== "" && (difficulty !== "" && difficulty > 0) && rows > 0 && columns > 0);
       
-        return player != "" && (difficulty != "" && difficulty > 0) && rows > 0 && columns > 0
+        return player !== "" && (difficulty !== "" && difficulty > 0) && rows > 0 && columns > 0
     }
 
     function handleCreateClass(e: FormEvent){

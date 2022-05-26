@@ -1,20 +1,9 @@
-import React, { PureComponent, useState, FormEvent } from 'react';
-// import  { redirect, history } from 'react-router-dom'
+import React, {  useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
-
-
 import './styles.css';
-import api from '../../services/api.ts';
-
-
-
 import './styles.css';
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';
-
-import TextArea from '../../components/TextArea';
-import Select from '../../components/Select';
 import Button from '../../components/Button';
 
 function ContinueGameForm() {
@@ -23,7 +12,7 @@ function ContinueGameForm() {
     const [code, setCode] = useState('');
     
 
-    const isFormValid = code != "";
+    const isFormValid = code !== "";
 
     const handleContinue = () => {
         navigate('/game/' + code )

@@ -1,21 +1,10 @@
-import React, { PureComponent, useState, FormEvent, useEffect } from 'react';
-import {
-    useParams
-  } from "react-router-dom";
-
-
+import React, {  useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import './styles.css';
 import api from '../../services/api.ts';
-
-
-
 import './styles.css';
 import PageHeader from '../../components/PageHeader';
-import Input from '../../components/Input';
 
-import TextArea from '../../components/TextArea';
-import Select from '../../components/Select';
-import Button from '../../components/Button';
 
 function Game() {
     const { code } = useParams();
@@ -35,15 +24,6 @@ function Game() {
     }, [counter]);
 
 
-    const isFormValid = code != "";
-
-    function handleCreateClass(e: FormEvent){
-        e.preventDefault();
-        // if(isFormValid){
-        // }
-
-        
-    }
 
     /**
      * {
@@ -62,16 +42,6 @@ function Game() {
         }
         api.post('game/play', userPlay).then((res) => {
             setCounter(counter + 1);
-            // useEffect(() => {
-            //     api.get('game/' + code + '/code').then((res) => {
-                    // console.log(res);
-                    // setGame(res.data);
-                    
-            //     }).catch((err) => {
-            //         console.log(err);
-            //     })
-            // }, []);
-            
         }).catch((err) => {
             console.log(err);
         })
@@ -106,7 +76,7 @@ function Game() {
             <PageHeader title="Let's Play!" 
                 description="Click on desired cells to open it."/>
                 <main>
-                    { game != undefined ? (
+                    { game !== undefined ? (
                         <div > 
                             <h2 className="game-player">Bem vindo {game.player}</h2>
                             <div className="matrix-container">
