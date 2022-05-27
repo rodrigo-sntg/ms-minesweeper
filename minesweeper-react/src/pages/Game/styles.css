@@ -159,6 +159,37 @@ span.matrix-col {height: 50px;width: 50px;background: #000eff2e;display: flex !i
 
 }
 
+span.matrix-col.co-\? {
+    background-color: #000eff2e;
+}
+span.matrix-col.co-0 {
+    background-color: #c3c5f22e;
+}
+span.matrix-col.co-1 {
+    background-color: #000eff47;
+}
+span.matrix-col.co-2 {
+    background-color: #a7acff;
+}
+span.matrix-col.co-3 {
+    background-color: #979dff;
+}
+span.matrix-col.co-4 {
+    background-color: #979dff;
+}
+span.matrix-col.co-5 {
+    background-color: #979dff;
+    color: #ffffff;
+}
+span.matrix-col.co-6 {
+    background-color: #979dff;
+    color: #ffffff;
+}
+span.matrix-col.co-7 {
+    background-color: #979dff;
+    color: #ffffff;
+}
+
 @media (min-width: 1100px){
     #page-landing-content {
         max-width: 1100px;
@@ -209,5 +240,14 @@ span.matrix-col {height: 50px;width: 50px;background: #000eff2e;display: flex !i
         grid-area: total;
         justify-self: end;
     }
+
 }
 
+
+span.user {display: block;font-weight: bold;/* content: ":"; */}
+
+.messages {text-align: left;}
+
+.message-block {display: block;background: white;width: 100%;}
+
+span.message {padding: 6px 7px 8px 9px;}
